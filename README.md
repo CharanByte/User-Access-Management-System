@@ -41,3 +41,49 @@ CREATE TABLE requests (
     status TEXT
 );
 
+Project Configuration
+1. Clone or Download the Project
+https://github.com/CharanByte/User-Access-Management-System.git
+
+3. Set Database Connection
+Update your DB credentials in JSP files or servlet utility class:
+String dbUrl = "jdbc:postgresql://localhost:1234/UserManagementSystem";
+String dbUser = "postgres";
+String dbPass = "charan";
+
+4. Build & Deploy
+Open in IntelliJ IDEA.
+
+Configure Tomcat Server (version 10+).
+
+Deploy project to the server.
+
+Run the server and go to:
+http://localhost:8080/UserAccessManagementSystem
+
+📁 Folder Structure
+
+UserAccessManagementSystem/
+│
+├── WebContent/
+│   ├── index.jsp
+│   ├── login.jsp
+│   ├── signup.jsp
+│   ├── requestAccess.jsp
+│   ├── createSoftware.jsp
+│   └── pendingRequests.jsp
+│
+├── src/
+│   └── com/example/usermanagement/
+│       ├── LoginServlet.java
+│       ├── SignupServlet.java
+│       ├── RequestServlet.java
+│       ├── ApproveServlet.java
+│       └── SoftwareServlet.java
+
+Default Users 
+
+INSERT INTO users (username, password, role) VALUES
+('admin', 'admin123', 'Admin'),
+('manager', 'manager123', 'Manager'),
+
