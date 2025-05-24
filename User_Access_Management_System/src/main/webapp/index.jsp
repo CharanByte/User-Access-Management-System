@@ -65,9 +65,7 @@
     <a href="login.jsp" class="btn">Log In</a>
 </div>
 
-<footer>
-    &copy; 2025 User Access Management System. All rights reserved.
-</footer>
+
 
 </body>
 </html>

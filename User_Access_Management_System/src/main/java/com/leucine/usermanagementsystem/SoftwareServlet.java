@@ -8,14 +8,13 @@ import jakarta.servlet.http.*;
 
 @WebServlet(urlPatterns = "/software")
 public class SoftwareServlet extends HttpServlet {
-    private final String DB_URL = "jdbc:postgresql://localhost:1234/UserManagementSystem";
-    private final String DB_USER = "postgres";
-    private final String DB_PASS = "charan";
+    private final String url = "jdbc:postgresql://localhost:1234/UserManagementSystem";
+    private final String user_Name = "postgres";
+    private final String db_Password = "charan";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Check if user is admin
         HttpSession session = request.getSession(false);
         if (session == null || !"admin".equalsIgnoreCase((String) session.getAttribute("role"))) {
             response.sendRedirect("login.jsp");
@@ -36,7 +35,7 @@ public class SoftwareServlet extends HttpServlet {
 
         try {
             Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            Connection conn = DriverManager.getConnection(url, user_Name, db_Password);
 
             PreparedStatement stmt = conn.prepareStatement(
                     "INSERT INTO software (name, description, access_levels) VALUES (?, ?, ?)"

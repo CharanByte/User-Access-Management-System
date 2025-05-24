@@ -8,9 +8,9 @@ import jakarta.servlet.http.*;
 
 @WebServlet(urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
-    private final String DB_URL = "jdbc:postgresql://localhost:1234/UserManagementSystem";
-    private final String DB_USER = "postgres";
-    private final String DB_PASS = "charan";
+    private final String url = "jdbc:postgresql://localhost:1234/UserManagementSystem";
+    private final String user_Name = "postgres";
+    private final String db_Password = "charan";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet {
 
         try {
             Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            Connection conn = DriverManager.getConnection(url, user_Name, db_Password);
 
             PreparedStatement stmt = conn.prepareStatement(
                     "SELECT role ,id FROM users WHERE username = ? AND password = ?");
